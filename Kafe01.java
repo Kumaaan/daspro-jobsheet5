@@ -31,6 +31,7 @@ public class Kafe01 {
         }
         double totalHarga = hargaMenu * jumlah;
 
+        
         switch (ukuranCup) {
             case 'S':
                 break;
@@ -40,12 +41,16 @@ public class Kafe01 {
             case 'L':
             totalHarga += 0.4 * totalHarga;
                 break;
+            default:
+                System.out.println("Ukuran cup yang dipilih tidak tersedia");
+                sc.close();
+                return;
         }
         double diskon = keanggotaan ? 0.1 : 0;
         double nominalBayar = totalHarga - (diskon * totalHarga);
 
         System.out.println("Item pembelian: " + jumlah + " " + "dengan ukuran cup " + ukuranCup);
         System.out.println("Nominal bayar: " + nominalBayar);
-        sc.close();
+        
     }
 }
